@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Doctor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <div class="title">
+        AI Doctor
+    </div>
+    
+    <!-- this is the main container which is being devided into two parts -->
+    <!-- one is side box and other is main box for input and output -->
+
+    <div class="container">
+
+
+        <!-- this is the side box for old queries -->
+
+        <div class="sidebox">
+            <div class="profile">
+                <div class="profile-pic">
+                <img src="profile-pic.jpg" alt="Profile Picture" style="width: 200px; height: auto;">
+
+                </div>
+
+                <div class="Info">
+                    John Doe
+                </div>
+
+
+            </div>
+    
+            <div class="med-history">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit unde sint consequuntur ad reprehenderit nobis excepturi, itaque eveniet, blanditiis quae doloribus veritatis, asperiores iusto quos non necessitatibus sed? Facilis, sed?
+                
+            </div>
+
+        </div>
+
+        
+
+        <!-- this is the main box for input and output -->
+
+
+       
+        <div class="mainbox">
+            
+            <div class="textbox">
+                <h2>Instructions:</h2>
+                <p>Write your symptoms below:</p>
+                <textarea id="symptoms" rows="4" cols="50"></textarea>
+            </div>
+            <div class="textbox">
+                <h2>Answer:</h2>
+                <textarea id="answer" rows="4" cols="50" readonly></textarea>
+            </div>
+            <div class="slider">
+                <h2>Token:</h2>
+                <input type="range" min="0" max="100" value="50" id="tokenSlider">
+            </div>
+            <div class="slider">
+                <h2>Input Size:</h2>
+                <input type="range" min="0" max="100" value="50" id="inputSizeSlider">
+            </div>
+            <div class="slider">
+                <h2>Top P:</h2>
+                <input type="range" min="0" max="100" value="50" id="topPSlider">
+            </div>
+        </div>
+       
+    </div>
+
+    <script>
+    const tokenSlider = document.getElementById("tokenSlider");
+    const inputSizeSlider = document.getElementById("inputSizeSlider");
+    const topPSlider = document.getElementById("topPSlider");
+
+    tokenSlider.addEventListener("input", function() {
+        // Code to handle token slider change
+    });
+
+    inputSizeSlider.addEventListener("input", function() {
+        // Code to handle input size slider change
+    });
+
+    topPSlider.addEventListener("input", function() {
+        // Code to handle top P slider change
+    });
+        
+    </script>
+</body>
+</html>
