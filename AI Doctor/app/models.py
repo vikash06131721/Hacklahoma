@@ -6,13 +6,9 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), unique=True, nullable=False)
     password = db.Column(db.String())
-    first_name = db.Column(db.String(150))
-    last_name = db.Column(db.String(150))
-    gender = db.Column(db.String(150))
-    dob = db.Column(db.Date())
+    name = db.Column(db.String(150))
     def to_json(self):        
-        return {"fname": self.first_name,
-                "lname": self.last_name,
+        return {"name": self.name,
                 "email": self.email}
 
     def is_authenticated(self):
@@ -26,8 +22,3 @@ class User(db.Model, UserMixin):
 
     def get_id(self):         
         return str(self.id)
-    
-class Medication (db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    name = db.Column(db.String(100))

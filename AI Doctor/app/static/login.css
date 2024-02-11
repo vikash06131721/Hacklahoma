@@ -3,13 +3,24 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Courier New', monospace;
-  	background-color: #01220f;
   	color: #33ff33;
     text-align: center;
+	background: conic-gradient(
+    from 45deg,
+    #00200d 0,
+    #052b14 90deg,
+    #00200d 90deg,
+    #02481f 180deg,
+    #0b4a25 180deg,
+    #002811 270deg,
+    #00200d 270deg,
+    #00200d 360deg
+	);
+	background-size: 0.1em 0.1em;
+	height: 100vh;
 }
 
 .hero {
-	background-color: #01220f;
 	background-size: cover;
 	background-position: center center;
 	height: 100vh;
@@ -20,22 +31,17 @@ body {
 }
 
 .login-box {
-	background-color: #01220f;
 	border: 2px solid #33ff33;
 	width: 30%;
-	height: 50%;
+	height: 400px;
 	margin: auto;
 	padding: 30px;
 	text-align: center;
 	min-width: 500px;
 	max-width: 600px;
+	min-height: 50%;
 }
 
-h2 {
-	font-size: 36px;
-	margin: 20px;
-	font-family: 'Courier New', Courier, monospace;
-}
 p {
 	text-align: justify;
 	font-size: 20px;
@@ -74,7 +80,7 @@ button {
 	transition: all 0.3s ease-in-out;
 	background-color: #33ff33;
 	color: black;
-	border: none;
+	border: 2px solid black;
 	margin-bottom: 20px;
   font-family: 'Courier New', Courier, monospace;
 }

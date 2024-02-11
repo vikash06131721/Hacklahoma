@@ -14,11 +14,11 @@ def login():
         password = request.form.get('password')
         user = User.query.filter_by(email=email).first()
         if user == current_user:
-            return redirect(url_for('views.home_page', user=user))
+            return redirect(url_for('views.get_content', user=user))
         if user:
             if check_password_hash(user.password, password):
                 login_user(user, remember=True)
-                return redirect(url_for('views.home_page', user=user))
+                return redirect(url_for('views.get_content', user=user))
             else:
                 flash('Incorrect password, please try again', category='login-error')
         else:
@@ -30,7 +30,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('views.landing_page'))
+    return redirect(url_for('auth.login'))
 
 @auth.route('/signup/', methods=['GET', 'POST'])
 def signup():
@@ -38,14 +38,7 @@ def signup():
         email = request.form.get('email')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
-        firstName = request.form.get('firstName')
-        lastName = request.form.get('lastName')
-        dob = request.form.get('dob')
-        gender = request.form.get('gender')
-        date_format = "%m/%d/%Y"  # Use %m for month, %d for day, and %Y for four-digit year
-
-        # Convert the string to a datetime object
-        dob = datetime.strptime(dob, date_format)
+        name = request.form.get('name')
         
         user = User.query.filter_by(email=email).first()
         if user:
@@ -54,7 +47,7 @@ def signup():
             flash('Passwords don\'t match.', category='signup-error')
         else:
             #Create a new row in the db
-            new_user = User(email=email, first_name=firstName, last_name=lastName, dob=dob, gender=gender, password=generate_password_hash(password1, method='sha256'))
+            new_user = User(email=email, name=name, password=generate_password_hash(password1, method='sha256'))
             #Add a new row to the db
             db.session.add(new_user)
             db.session.commit()

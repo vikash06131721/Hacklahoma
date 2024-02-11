@@ -1,0 +1,14 @@
+# # Ignore Python compiled files
+# *.pyc
+# # Ignore Python bytecode files
+# __pycache__/
+
+# # Specific to the "AI Doctor" app
+# AI\ Doctor/app/__pycache__/
+
+AI\ Doctor/app/__pycache__/auth.cpython-310.pyc
+AI\ Doctor/app/__pycache__/models.cpython-310.pyc
+AI\ Doctor/app/__pycache__/views.cpython-310.pyc
+
+# Ignore DS_Store files in the static directory
+AI Doctor/app/static/.DS_Store

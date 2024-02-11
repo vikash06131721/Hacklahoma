@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Log in</title>
+	<title>Change Password</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/login.css">
 </head>
 <body>
     <main>
-        <section class="hero">
-            <div class="login-box">
-                {% with messages = get_flashed_messages(with_categories=true) %} 
-                {% if messages %} 
-                {% for category, message in messages %} 
-                    {% if category =='pw-error' %}
-                        <div class="alert error">
-                            <input type="checkbox" id="alert1"/>
-                            <label class="close" title="close" for="alert1">
-                                <i class="fa fa-remove"></i>
-                            </label>
-                            <p class="inner">
-                                <strong>{{message}}</strong> 
-                            </p>
-                        </div>
-                    {% elif category =='pw-success'%}
-                        <div class="alert success">
-                            <input type="checkbox" id="alert1"/>
-                            <label class="close" title="close" for="alert1">
-                                <i class="fa fa-remove"></i>
-                            </label>
-                            <p class="inner">
-                                <strong>{{message}}</strong> 
-                            </p>
-                        </div>
-                    {% endif %} 
-                {% endfor %} 
+        <section class="hero">        
+            {% with messages = get_flashed_messages(with_categories=true) %} 
+            {% if messages %} 
+            {% for category, message in messages %} 
+                {% if category =='pw-error' %}
+                    <div class="alert error">
+                        <input type="checkbox" id="alert1"/>
+                        <label class="close" title="close" for="alert1">
+                            <i class="fa fa-remove"></i>
+                        </label>
+                        <p class="inner">
+                            <strong>{{message}}</strong> 
+                        </p>
+                    </div>
+                {% elif category =='pw-success'%}
+                    <div class="alert success">
+                        <input type="checkbox" id="alert1"/>
+                        <label class="close" title="close" for="alert1">
+                            <i class="fa fa-remove"></i>
+                        </label>
+                        <p class="inner">
+                            <strong>{{message}}</strong> 
+                        </p>
+                    </div>
                 {% endif %} 
-                {% endwith %}
-                <h2>Change your password</h2>
+            {% endfor %} 
+            {% endif %} 
+            {% endwith %}
+            <div class="login-box" style="height: 500px;">
+                <p style="font-size: 36px;text-align: center; margin: 20px;">Change your password</p>
                 <form method="POST">
                     <div class="input-container">
                         <label for="email">Email:</label>
