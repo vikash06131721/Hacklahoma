@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Log in</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/login.css') }}">
+    
+</head>
+<body>
+  <main>
+    <section class="hero">
+        <div>
+            {% with messages = get_flashed_messages(with_categories=true) %} 
+            {% if messages %} 
+            {% for category, message in messages %} 
+                {% if category =='login-error' %}
+                    <div class="alert error">
+                        <input type="checkbox" id="alert1"/>
+                        <label class="close" title="close" for="alert1">
+                            <i class="fa fa-remove" style="color:black"></i>
+                        </label>
+                        <p class="inner">
+                            <strong style="color:black">{{message}}</strong> 
+                        </p>
+                    </div>
+                {% elif category =='login-success'%}
+                    <div class="alert success">
+                        <input type="checkbox" id="alert1"/>
+                        <label class="close" title="close" for="alert1">
+                            <i class="fa fa-remove"></i>
+                        </label>
+                        <p class="inner">
+                            <strong>{{message}}</strong> 
+                        </p>
+                    </div>
+                {% endif %} 
+            {% endfor %} 
+            {% endif %} 
+            {% endwith %}
+        </div>
+        <div class="login-box">
+            <h2>Login to Your Account</h2>
+            <form method="POST">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required style="color:#33ff33">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required style="color:#33ff33; ">
+                <button class="btn-primary">Login</button>
+            </form>
+            <div class="links">
+                <a href="/updatepw/">Forgot Password?</a>
+                <span> | </span>
+                <a href="/signup/">Don't have an account?</a>
+            </div>
+        </div>               
+    </section>
+	</main>
+    <script type="text/javascript">
+        function toggle() {
+            var int = document.getElementById('int');
+            int.classList.toggle('active');
+        }
+    </script>
+	
+</body>
+</html>

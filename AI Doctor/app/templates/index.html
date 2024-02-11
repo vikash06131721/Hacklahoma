@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>AI Doctor</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/style.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
@@ -49,16 +49,23 @@
 
 
        
-        <div class="mainbox">
-            
+        <form class="mainbox" method="POST">
             <div class="textbox">
-
                 <p>Response</p>
-                <textarea id="answer" rows="4" cols="50" readonly></textarea>
+                <textarea id="answer" rows="4" cols="50" style="color:white" readonly>
+                    {% if data is none %}
+                        <p></p>
+                    {% else %}
+                        {% for response in data.output %} 
+                            <p>{{response}}</p>
+                        {% endfor %} 
+                    {% endif %} 
+
+                </textarea>
             </div>
             <div class="textbox">
                 <h2>Symptoms/problems/questions</h2>
-                <textarea id="Symptoms" rows="4" cols="50" ></textarea>
+                <textarea id="Symptoms" rows="4" cols="50" style="color:white" ></textarea>
                 <button id="sendButton">Send</button>
             </div>
             <!-- <div class="slider">
@@ -73,7 +80,7 @@
                 <h2>Top P:</h2>
                 <input type="range" min="0" max="100" value="50" id="topPSlider">
             </div> -->
-        </div>
+        </form>
        
     </div>
 
