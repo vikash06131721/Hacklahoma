@@ -3,7 +3,7 @@
 
 <head>
     <title>AI Doctor</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/style.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
@@ -13,30 +13,14 @@
             AI Doctor
         </div>
         <div class="logout">
-<<<<<<< HEAD
             <button id="logout" onclick="location.href='/logout/'">Logout</button>
         </div>
     </div>
-=======
-            <button id="logout" onclick="location.href='index.html'" >Logout</button>
-        </div>
-    </div>
-    
-
-    <!-- this is the main container which is being devided into two parts -->
-    <!-- one is side box and other is main box for input and output -->
-
->>>>>>> 57963d4ce7c12e93097d706c7506d31c34d4806b
     <div class="container">
         <div class="sidebox">
             <div class="profile">
                 <div class="profile-pic">
-<<<<<<< HEAD
                     <img src="{{ url_for('static', filename='images/profile-pic.jpg') }}" alt="Profile Picture" style="width: auto; height: 215px;">
-=======
-                    <img src="profile-pic.jpg" alt="Profile Picture" style="width: auto; height: 215px;">
-
->>>>>>> 57963d4ce7c12e93097d706c7506d31c34d4806b
                 </div>
 
                 <div class="Info">
@@ -48,13 +32,8 @@
             <div class="med-history">
                 Present Medical History: <input type="text" id="presentMedHistory" class="green-text"></input><br>
                 Past Medical History: <input type="text" id="pastMedHistory" class="green-text"></input>
-<<<<<<< HEAD
-=======
-
->>>>>>> 57963d4ce7c12e93097d706c7506d31c34d4806b
             </div>
         </div>
-<<<<<<< HEAD
         <form class="mainbox" method="POST">
             <div class="textbox response-textbox">
                     {% if data.output is none %}
@@ -70,26 +49,6 @@
                 Symptoms/problems/questions
                 <input type="text" id="symptoms" name="symptoms" rows="4" cols="50">
                 <button id="sendButton">SEND</button>
-=======
-
-
-
-        <!-- this is the main box for input and output -->
-
-
-
-        <div class="mainbox">
-
-            <div class="textbox response-textbox">
-
-                <p>Response</p>
-                <textarea id="answer" rows="4" cols="50" readonly></textarea>
-            </div>
-            <div class="textbox symptoms-textbox">
-                Symptoms/problems/questions
-                <input id="symptoms" rows="4" cols="50" ></input>
-                <button id="sendButton" >Send</button>
->>>>>>> 57963d4ce7c12e93097d706c7506d31c34d4806b
             </div>
            
             <!-- <div class="slider">
@@ -104,11 +63,7 @@
                 <h2>Top P:</h2>
                 <input type="range" min="0" max="100" value="50" id="topPSlider">
             </div> -->
-<<<<<<< HEAD
         </form>
-=======
-        </div>
->>>>>>> 57963d4ce7c12e93097d706c7506d31c34d4806b
 
     </div>
 
@@ -129,11 +84,9 @@
             // Code to handle top P slider change
         });
 
+        
+
     </script>
 </body>
 
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 57963d4ce7c12e93097d706c7506d31c34d4806b
