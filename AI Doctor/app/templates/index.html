@@ -16,7 +16,7 @@
             <button id="logout" onclick="location.href='/logout/'">Logout</button>
         </div>
     </div>
-    <div class="container">
+    <form class="container" method="POST">
         <div class="sidebox">
             <div class="profile">
                 <div class="profile-pic">
@@ -30,20 +30,29 @@
             </div>
 
             <div class="med-history">
-                Present Medical History: <input type="text" id="presentMedHistory" class="green-text"></input><br>
-                Past Medical History: <input type="text" id="pastMedHistory" class="green-text"></input>
+                <label>&gt; Past Medical History:</label>
+                {% if data.past is none %}
+                    <input type="text" id="pastHis" name="pastHis" class="green-text"></input>
+                {% else %}
+                    <input type="text" id="pastHis" name="pastHis" class="green-text">{{data.past}}</input>
+                {% endif %} 
+
+                <label>&gt; Present Medical History:</label>
+                {% if data.present is none %}
+                    <input type="text" id="presentHis" name="presentHis" class="green-text"></input>
+                {% else %}
+                    <input type="text" id="presentHis" name="presentHis" class="green-text">{{data.present}}</input>
+                {% endif %} 
+                <label id="tokens">&gt; Response Limit: </label>
+                <div class="slidecontainer">       
+                    <input type="range" min="1" max="2048" value="100" class="slider" id="myRange" name="myRange" oninput="this.nextElementSibling.value = this.value">
+                    <output style="color: #33ff33; font-size:13px;">24</output>
+                </div>
             </div>
         </div>
-        <form class="mainbox" method="POST">
+        <div class="mainbox">
             <div class="textbox response-textbox">
-                    {% if data.output is none %}
-                        <p class="uppercase-text">Response</p>
-                    {% else %}
-                        {% for response in data.output %} 
-                            <p>{{response}}</p>
-                        {% endfor %} 
-                    {% endif %} 
-                </textarea>
+                <textarea id="answer" rows="4" cols="50" style="overflow:scroll;"></textarea>
             </div>
             <div class="textbox symptoms-textbox">
                 Symptoms/problems/questions
@@ -51,41 +60,42 @@
                 <button id="sendButton">SEND</button>
             </div>
            
-            <!-- <div class="slider">
-                <h2>Token:</h2>
-                <input type="range" min="0" max="100" value="50" id="tokenSlider">
-            </div>
-            <div class="slider">
-                <h2>Input Size:</h2>
-                <input type="range" min="0" max="100" value="50" id="inputSizeSlider">
-            </div>
-            <div class="slider">
-                <h2>Top P:</h2>
-                <input type="range" min="0" max="100" value="50" id="topPSlider">
-            </div> -->
-        </form>
+        </div>
 
-    </div>
+    </form>
 
     <script>
-        const tokenSlider = document.getElementById("tokenSlider");
-        const inputSizeSlider = document.getElementById("inputSizeSlider");
-        const topPSlider = document.getElementById("topPSlider");
-
-        tokenSlider.addEventListener("input", function () {
-            // Code to handle token slider change
-        });
-
-        inputSizeSlider.addEventListener("input", function () {
-            // Code to handle input size slider change
-        });
-
-        topPSlider.addEventListener("input", function () {
-            // Code to handle top P slider change
-        });
-
         
+        var response = {{ data.output|tojson }};
+        const arrayResponse = Object.values(response);
+        console.log(arrayResponse);
+    
+        var i = 0;
+        var strings = arrayResponse;
+        console.log(strings);
+        var currentStringIndex = 0;
+        var currentString = strings[currentStringIndex];
+        var speed = 50;
+        var blinkInterval;
 
+        function typeWriter() {
+            if (i < currentString.length) {
+                document.getElementById("answer").innerHTML += currentString.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                i = 0;
+                currentStringIndex++;
+                if (currentStringIndex < strings.length) {
+                    currentString = strings[currentStringIndex];
+                    setTimeout(typeWriter, speed * 3); // Pause between strings
+                } else {
+                    blinkCursor();
+                }
+            }
+        }
+        typeWriter();
+    
     </script>
 </body>
 

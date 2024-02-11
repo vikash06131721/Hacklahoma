@@ -13,15 +13,25 @@ views = Blueprint('views',__name__)
 def get_content():
     data = {}
     data['output'] = None
+    data['past'] = None
+    data['present']= None
     user = User.query.filter_by(id=current_user.get_id()).first()
     data['username'] = str(user.name)
     data['useremail'] = str(user.email)
     if request.method == 'POST':
         symptom = request.form.get('symptoms')
+        past = request.form.get('presentHis')
+        present = request.form.get('pastHis')
+        limit = request.form.get("myRange")
+        data['past'] = past
+        data['present']= present
         params = {
             'param': symptom,
         }
         print(symptom)
+        print(present)
+        print(past)
+        print(limit)
         api_url = 'http://127.0.0.1:9000/return_pred'
         try:
             response = requests.post(api_url, json=params)

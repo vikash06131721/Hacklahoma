@@ -5,6 +5,7 @@
     font-family: 'Inconsolata', monospace;
     justify-content: center;
     align-items: center;
+    scrollbar-color: rgb(0, 67, 0) rgb(0, 177, 0);
 }
 
 body {
@@ -22,6 +23,8 @@ body {
   );
   background-size: 0.1em 0.1em;
   height: 100vh;
+  cursor: caret 10 10, auto;
+  
 }
 
 .uppercase-text {
@@ -34,7 +37,7 @@ body {
     font-weight: 1000;
     box-sizing: border-box;
     font-size: 30px;
-    border: 4px solid #33ff33;
+    border: 2px solid #33ff33;
     border-style: inset;
     margin: 10px;
     padding: 3px;
@@ -81,7 +84,7 @@ body {
     align-items: center;
     justify-content: start;
     height: auto;
-    border: 4px solid #33ff33;
+    border: 2px solid #33ff33;
 
     border-style: inset;
     margin: 10px;
@@ -109,7 +112,7 @@ body {
 
 .profile {
     height: 50%;
-    border: 4px solid #33ff33;
+    border: 2px solid #33ff33;
     border-style: inset;
     margin: 10px;
     padding: 3px;
@@ -122,15 +125,13 @@ body {
 
 .med-history {
     height: 200px;
-    border: 4px solid #33ff33;
-    border-style: inset;
     margin: 10px;
     padding: 3px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 }
 
 .green-text {
@@ -163,9 +164,6 @@ body {
 .profile-pic {}
 
 .med-history {
-    border: 4px solid #33ff33;
-
-    border-style: inset;
     margin: 10px;
     padding: 3px;
 }
@@ -176,7 +174,7 @@ body {
 
     font-family: 'Courier New', monospace;
     font-size: 17px;
-    border: 4px solid #33ff33;
+    border: 2px solid #33ff33;
 
     border-style: inset;
     margin: 10px;
@@ -191,7 +189,7 @@ body {
     width: 98%;
     height: 70%;
     background-color: transparent;
-    border: 4px solid #33ff33;
+    border: 2px solid #33ff33;
     color: white;
     border-style: inset;
     margin: 10px;
@@ -203,7 +201,7 @@ body {
     width: 98%;
     height: 19%;
     background-color: transparent;
-    border: 4px solid #33ff33;
+    border: 2px solid #33ff33;
     color: white;
     border-style: inset;
     margin: 10px;
@@ -214,12 +212,13 @@ body {
 #sendButton {
     color: black;
     padding: 7px 15px;
-    border: 2px soli;
+    border: 2px solid;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     background-color: #33ff33;
     margin: 11px;
 }
+
 
 #sendButton:hover {
     background-color: #000000;
@@ -285,3 +284,60 @@ button:hover {
     color: #33ff33;
     border: 2px solid #33ff33;
 }
+
+label {
+	display: block;
+	font-size: 16px;
+	margin: 10px;
+    color: #33ff33;
+}
+
+#pastHis, #presentHis {
+    font-size: 20px;
+	width: 90%;
+	box-sizing: border-box;
+    padding: 5px;
+	
+	background-color: black;
+	font-family: 'Courier New', Courier, monospace;
+	color:#33ff33;
+	outline: none; 
+}
+
+.slidecontainer {
+    width: 90%;
+    border-color: black;
+    margin-bottom: 0px;
+  }
+  
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 20px;
+    background: black;
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-color: #000;
+    margin-bottom: 0%;
+  }
+  
+  .slider:hover {
+    opacity: 1;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #33ff33;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #33ff33;
+    cursor: pointer;
+  }
