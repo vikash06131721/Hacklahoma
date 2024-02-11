@@ -2,7 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+<<<<<<< HEAD
     font-family: 'Inconsolata', monospace;
+=======
+    font-family: 'courier', monospace;
+>>>>>>> 57963d4ce7c12e93097d706c7506d31c34d4806b
     justify-content: center;
     align-items: center;
 }
@@ -22,6 +26,7 @@ body {
   );
   background-size: 0.1em 0.1em;
   height: 100vh;
+<<<<<<< HEAD
 }
 
 .uppercase-text {
@@ -73,7 +78,61 @@ body {
     background-color: #000000;
     color: #33ff33;
     border: 2px solid #33ff33;
+=======
 }
+
+
+
+.navbar {
+    height: 60px;
+    color: #04a504;
+    font-weight: 1000;
+    box-sizing: border-box;
+    font-size: 30px;
+    border: 4px solid #33ff33;
+    border-style: inset;
+    margin: 10px;
+    padding: 3px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+
+>>>>>>> 57963d4ce7c12e93097d706c7506d31c34d4806b
+}
+.title {
+   
+    margin-left: 10px;
+ 
+}
+
+.logout {
+    color: #049f04;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+
+#logout {
+    color: white;
+    padding: 7px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+    background-color: #33ff33;
+}
+
+
+#logout:hover {
+    background-color: #000000;
+    color: #33ff33;
+    border: 2px solid #33ff33;
+}
+
+
 
 .container {
     display: flex;
@@ -212,20 +271,59 @@ body {
 }
 
 #sendButton {
+<<<<<<< HEAD
     color: black;
     padding: 7px 15px;
     border: 2px soli;
     cursor: pointer;
+=======
+    color: white;
+    padding: 7px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+>>>>>>> 57963d4ce7c12e93097d706c7506d31c34d4806b
     transition: all 0.3s ease-in-out;
     background-color: #33ff33;
     margin: 11px;
 }
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 57963d4ce7c12e93097d706c7506d31c34d4806b
 #sendButton:hover {
     background-color: #000000;
     color: #33ff33;
     border: 2px solid #33ff33;
 }
+<<<<<<< HEAD
+=======
+
+
+#answer {
+    background-color: transparent;
+    height: 94%;
+    width: 98%;
+    color: white;
+    border-style: none;
+    outline: none;
+    /* Remove default focus outline */
+}
+
+#symptoms {
+    background-color: transparent;
+    height: 80%;
+    width: 98%;
+    color: white;
+    border-style: none;
+    outline: none;
+    /* Remove default focus outline */
+}
+
+>>>>>>> 57963d4ce7c12e93097d706c7506d31c34d4806b
 
 
 #answer {
@@ -274,14 +372,29 @@ body {
 
 
 button {
+<<<<<<< HEAD
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     background-color: #33ff33;
     border: 2px solid black;
+=======
+
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    background-color: #33ff33;
+
+    border: 2px solid black;
+
+
+>>>>>>> 57963d4ce7c12e93097d706c7506d31c34d4806b
 }
 
 button:hover {
     background-color: #000000;
     color: #33ff33;
     border: 2px solid #33ff33;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 57963d4ce7c12e93097d706c7506d31c34d4806b
