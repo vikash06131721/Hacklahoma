@@ -10,7 +10,7 @@
 <body>
     <div class="navbar">
         <div class="title">
-            AI Doctor
+            RoboClinician
         </div>
         <div class="logout">
             <button id="logout" onclick="location.href='/logout/'">Logout</button>
@@ -34,28 +34,32 @@
                 {% if data.past is none %}
                     <input type="text" id="pastHis" name="pastHis" class="green-text"></input>
                 {% else %}
-                    <input type="text" id="pastHis" name="pastHis" class="green-text">{{data.past}}</input>
+                    <input type="text" id="pastHis" name="pastHis" class="green-text"  placeholder={{data.past}}>
                 {% endif %} 
 
                 <label>&gt; Present Medical History:</label>
                 {% if data.present is none %}
                     <input type="text" id="presentHis" name="presentHis" class="green-text"></input>
                 {% else %}
-                    <input type="text" id="presentHis" name="presentHis" class="green-text">{{data.present}}</input>
+                    <input type="text" id="presentHis" name="presentHis" class="green-text" placeholder={{data.present}}>
                 {% endif %} 
                 <label id="tokens">&gt; Response Limit: </label>
                 <div class="slidecontainer">       
-                    <input type="range" min="1" max="2048" value="100" class="slider" id="myRange" name="myRange" oninput="this.nextElementSibling.value = this.value">
-                    <output style="color: #33ff33; font-size:13px;">24</output>
+                    <input type="range" min="1" max="2048" value="{{data.limit}}" class="slider" id="myRange" name="myRange" oninput="this.nextElementSibling.value = this.value">
+                    {% if data.limit is none %}
+                        <output style="color: #33ff33; font-size:13px;">100</output>
+                    {% else %}
+                        <output style="color: #33ff33; font-size:13px;">{{data.limit}}</output>
+                    {% endif %} 
                 </div>
             </div>
         </div>
         <div class="mainbox">
             <div class="textbox response-textbox">
-                <textarea id="answer" rows="4" cols="50" style="overflow:scroll;"></textarea>
+                <textarea id="answer" rows="4" cols="50" style="overflow:scroll; text-transform:uppercase;"></textarea>
             </div>
             <div class="textbox symptoms-textbox">
-                Symptoms/problems/questions
+                <p style="font-size:16px">Symptoms/problems/questions</p>
                 <input type="text" id="symptoms" name="symptoms" rows="4" cols="50">
                 <button id="sendButton">SEND</button>
             </div>
@@ -75,7 +79,7 @@
         console.log(strings);
         var currentStringIndex = 0;
         var currentString = strings[currentStringIndex];
-        var speed = 5;
+        var speed = 50;
         var blinkInterval;
 
         function typeWriter() {

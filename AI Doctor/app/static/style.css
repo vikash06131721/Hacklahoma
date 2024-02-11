@@ -111,7 +111,7 @@ body {
 
 
 .profile {
-    height: 50%;
+    height: 350px;
     border: 2px solid #33ff33;
     border-style: inset;
     margin: 10px;
@@ -124,7 +124,7 @@ body {
 }
 
 .med-history {
-    height: 200px;
+    height: 70%;
     margin: 10px;
     padding: 3px;
     width: 100%;
@@ -297,11 +297,18 @@ label {
 	width: 90%;
 	box-sizing: border-box;
     padding: 5px;
-	
 	background-color: black;
 	font-family: 'Courier New', Courier, monospace;
 	color:#33ff33;
 	outline: none; 
+}
+
+#pastHis::placeholder {
+    color:#33ff33;
+}
+
+#presentHis::placeholder {
+    color:#33ff33;
 }
 
 .slidecontainer {
@@ -341,3 +348,5 @@ label {
     background: #33ff33;
     cursor: pointer;
   }
+
+  
